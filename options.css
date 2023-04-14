@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: rgba(244, 73, 73, 0.88);
+    color: white;
+    align-items: center;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    font-size: 30px;
+    align-items: center;
+}
+img{
+    height: 6rem;
+    width: 6rem;
+
+}
+.apiKeyHolder{
+    display: flex;
+    gap: 2rem;
+    height: 3rem;
+    align-items: center;
+}
+#options-form{
+    display: flex;
+    justify-content: center;
+}
+#api-key{
+    width: 200px;
+    height: 2rem;
+}
+.save{
+    background-color: rgba(235, 122, 122, 0.88);
+    margin-left: 12px;
+}
+#prompts-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    align-items: center;
+    gap: 1rem;
+}
+.new-prompt{
+    height: 30px;
+    margin-right: 1rem;
+    width: auto;
+}
+button {
+    text-decoration: none;
+    padding: 0.4rem;
+    border-radius: 3px;
+    border: 2px solid rgb(255, 255, 255);
+    font-size: 0.9rem;
+    color: white;
+    background-color: rgba(235, 122, 122, 0.88);
+}
+
+#add-prompt{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex: 1;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}

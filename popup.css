@@ -1,0 +1,46 @@
+
+body{
+    background-color: rgba(244, 73, 73, 0.88);
+    height: 300px;
+    width: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+img{
+    height: 40px;
+    width: 40px;
+
+}
+.header{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.description{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
+.options{
+    text-align: center;
+    color: lightblue;
+}
+
+.version{
+    color: whitesmoke;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 10px; 
+}
+a{
+    text-decoration: underline;
+    color: white;
+}

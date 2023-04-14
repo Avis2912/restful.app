@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Scribbly</h1>
+        <img src="scribblyIcon.svg"/>
+    </div>
+    <form id="options-form">
+        <div class="apiKeyHolder">
+            <label for="api-key">OpenAI API Key:</label>
+            <input type="text" id="api-key" name="api-key">
+        </div>
+        <button type="submit" class="save">Save</button>
+    </form>
+    <div id="prompts-container">
+        <button id="add-prompt">Add Prompt</button>
+    </div>
+    <script src="options.js"></script>
+</body>
+
+</html>
