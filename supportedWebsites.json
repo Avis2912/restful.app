@@ -18,7 +18,6 @@
     "sheets.google.com": {
       "action": "document.activeElement.textContent"
     }
-
   },
   "default": {
     "action": "document.activeElement.textContent"
