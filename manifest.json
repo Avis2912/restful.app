@@ -10,7 +10,7 @@
     "tabs"
     ],
   "action": {
-    "default_icon": "icon48.png",
+    "default_icon": "restful-logo4.png",
     "default_popup": "popup.html"
   },
   "background": {
@@ -24,8 +24,8 @@
   ],
   "options_page": "options.html",
   "icons": {
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "48": "restful-logo4.png",
+    "128": "restful-logo4.png"
   },
   "host_permissions": ["<all_urls>"]
 }

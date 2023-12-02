@@ -1,7 +1,5 @@
-chrome.runtime.onConnect.addListener(port => {
-  console.assert(port.name === "regularUpdate");
+chrome.alarms.create("updateTime", { periodInMinutes: 1/10 }); 
 
-  chrome.alarms.create("updateTime", { periodInMinutes: 1/60 }); 
 
   chrome.alarms.onAlarm.addListener(alarm => {
 
@@ -13,11 +11,14 @@ chrome.runtime.onConnect.addListener(port => {
     chrome.storage.local.get(['hours', 'minutes'], (result) => {
       let hours = result.hours ?? 4; // Default to 4 if undefined
       let minutes = result.minutes ?? 0; // Default to 0 if undefined
+      
+      chrome.storage.local.get(['frequencyHours'], (result2) => {
+      let frequencyHours = result2.frequencyHours ?? 4; // Default to 4 if undefined
 
       if (minutes === 0) {
         if (hours === 0) {
           restful();
-          hours = 4; // Reset hours to 4 after countdown ends
+          hours = frequencyHours; // Reset hours to 4 after countdown ends
         } else {
           hours--;
           minutes = 59;
@@ -27,6 +28,8 @@ chrome.runtime.onConnect.addListener(port => {
       }
       chrome.storage.local.set({ 'hours': hours, 'minutes': minutes });
     });
+
+  });
     
     // chrome.storage.local.get(['hours', 'minutes'], (result) => {
     //   port.postMessage({ message: result });
@@ -69,7 +72,6 @@ function executeScriptInTab() {
 
 
 function run_restful_app(seconds, hours) {
-
 
             // Create a countdown element
             const overlayDiv = document.createElement('div');
@@ -124,7 +126,6 @@ function run_restful_app(seconds, hours) {
             centerText.style.opacity = "0.8";
 
             const centerText2 = document.createElement('h1');
-            // centerText2.textContent = 'Five Times In Slow Succession';
             centerText2.style.color = '#FFF';
             centerText2.style.textAlign = 'center';
             centerText2.style.fontFamily = "Fantasy"; //georgia, palatino, fantasy, didot, 
@@ -134,9 +135,9 @@ function run_restful_app(seconds, hours) {
             centerText2.style.lineHeight = 'normal';
             centerText2.style.position = 'absolute';
             centerText2.style.letterSpacing = '1px'; // Adjust the letter spacing as needed
-            centerText2.style.top = '60%';
-            centerText2.style.left = '50%';
-            centerText2.style.transform = 'translate(-50%, -50%)';
+            centerText2.style.top = '140px';
+            centerText2.style.left = '0%';
+            centerText2.style.transform = 'translate(0%, 0%)';
             centerText2.style.opacity = "0.8";
 
             const bottomText = document.createElement('div');
@@ -175,7 +176,7 @@ function run_restful_app(seconds, hours) {
               'BLINK': 'Five Times In Slow Succession',
               'STARE': 'At The Furthest Wall Nearby', //'zmKK7Wxe22k',
               'CLOSE': 'Your Eyes Completely',
-              'BLINK': 'Ten Times In Quick Succession',
+              // 'BLINK': 'Ten Times In Quick Succession',
               'PLACE': 'Your Palms On Your Eyes',
  
              };
@@ -185,8 +186,9 @@ function run_restful_app(seconds, hours) {
             centerText.textContent = randomTextKey;
             centerText2.textContent = Texts[randomTextKey];
 
+            centerText.style.justifyContent = "center";
+            centerText.appendChild(centerText2);
             textOverlay.appendChild(centerText);
-            textOverlay.appendChild(centerText2);
             textOverlay.appendChild(bottomText);
             textOverlay.appendChild(mainCountdownElement);
 
@@ -194,8 +196,10 @@ function run_restful_app(seconds, hours) {
             const IDs = {
              'blue': 'oGGHE6YXBlo',
              'black': '3FHTPADy3QU', //'zmKK7Wxe22k',
-              'darkred': 'IadsLclBOS8',
-              'green': '0-jUHUz_swY'
+              'darkred': 'OdT7niw9w7M',
+              'green': '0-jUHUz_swY',
+              'black': 'FslCeCp1GqM',
+              
 
             // night waves, night stuff, beach waves, forest
             };
@@ -222,7 +226,7 @@ function run_restful_app(seconds, hours) {
             carrier.style.width = '120px';
             carrier.style.height = '60px';
             carrier.style.zIndex = '999999';
-            carrier.style.backgroundColor = 'black';
+            carrier.style.backgroundColor = '#539F86';
             carrier.style.borderTopLeftRadius = "50px";
             carrier.style.borderBottomLeftRadius = "50px";
             carrier.style.transition = 'right 1.8s';  // 1s transition for opacity
@@ -234,7 +238,7 @@ function run_restful_app(seconds, hours) {
             carrier2.style.width = '120px';
             carrier2.style.height = '50px';
             carrier2.style.zIndex = '9999999';
-            carrier2.style.backgroundColor = 'black';
+            carrier2.style.backgroundColor = '#5AAF93';
             carrier2.style.borderTopLeftRadius = "50px";
             carrier2.style.borderBottomLeftRadius = "50px";
             carrier2.style.transition = 'right 2s';  
@@ -244,7 +248,7 @@ function run_restful_app(seconds, hours) {
             countdownElement.style.top = '53%';
             countdownElement.style.left = '35px';
             countdownElement.style.transform = 'translate(-50%, -50%)';
-            countdownElement.style.fontSize = '28px';
+            countdownElement.style.fontSize = '30px';
             countdownElement.style.zIndex = '99999999';
             countdownElement.style.color = 'white';
             countdownElement.style.paddingBottom = '4px';
@@ -351,6 +355,9 @@ function run_restful_app(seconds, hours) {
 
 
 });
+
+chrome.runtime.onConnect.addListener(port => {
+  console.assert(port.name === "regularUpdate");
 
 });
 
