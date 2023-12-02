@@ -1,4 +1,4 @@
-chrome.alarms.create("updateTime", { periodInMinutes: 1/10 }); 
+chrome.alarms.create("updateTime", { periodInMinutes: 1/60 }); 
 
 
   chrome.alarms.onAlarm.addListener(alarm => {
@@ -133,9 +133,9 @@ function run_restful_app(seconds, hours) {
             centerText2.style.fontStyle = 'light';
             centerText2.style.fontWeight = '600';
             centerText2.style.lineHeight = 'normal';
-            centerText2.style.position = 'absolute';
+            centerText2.style.position = 'relative';
             centerText2.style.letterSpacing = '1px'; // Adjust the letter spacing as needed
-            centerText2.style.top = '140px';
+            centerText2.style.top = '-20px';
             centerText2.style.left = '0%';
             centerText2.style.transform = 'translate(0%, 0%)';
             centerText2.style.opacity = "0.8";

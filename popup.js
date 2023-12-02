@@ -67,10 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
       textOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999999;opacity:1;background-color:transparent;transition:opacity 1.8s;';
 
       const centerText = document.createElement('h1');
-      centerText.style.cssText = 'color:#FFF;text-align:center;font-family:Futura;font-size:120px;font-style:light;font-weight:100;line-height:normal;position:absolute;letter-spacing:8px;top:48%;left:00%;transform:translate(-50%, -50%);opacity:0.8;';
+      centerText.style.cssText = 'color:#FFF;text-align:center;font-family:Futura;font-size:120px;font-style:light;font-weight:100;line-height:normal;position:absolute;letter-spacing:8px;top:48%;left:50%;transform:translate(-50%, -50%);opacity:0.8;';
 
       const centerText2 = document.createElement('h1');
-      centerText2.style.cssText = 'color:#FFF;text-align:center;font-family:Fantasy;font-size:25px;font-style:light;font-weight:600;line-height:normal;position:absolute;letter-spacing:1px; top:140px; left:0%;transform:translate(0%, -0%);opacity:0.8;';
+      centerText2.style.cssText = 'color:#FFF;text-align:center;font-family:Fantasy;font-size:25px;font-style:light;font-weight:600;line-height:normal;position:relative;letter-spacing:1px; top:-20px; left:0%;transform:translate(0%, 0%);opacity:0.8;';
 
       const bottomText = document.createElement('div');
       bottomText.style.cssText = 'color:#FFF;text-align:center;font-family:"Italiana", sans-serif;font-size:22px;font-style:light;font-weight:100;line-height:normal;position:absolute;letter-spacing:4px;top:93%;left:50%;transform:translate(-50%, -50%);opacity:0.6;';
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       mainCountdownElement.style.cssText = 'color:#FFF;text-align:center;font-family:Palatino;font-size:26px;font-style:light;font-weight:100;line-height:normal;position:absolute;letter-spacing:0px;top:8%;left:5%;opacity:0.6;transform:translate(-50%, -50%);';
 
       const Texts = {
-        'CLOSE': 'Your Palms are heavy', 
+        'CLOSE': 'Your Eyes. Focus On The Moment.', 
       // 'STARE': 'At The Furthest Wall Nearby', 
       // 'CLOSE': 'Your Eyes Completely', 
       // 'BLINK': 'Ten Times In Quick Succession', 
