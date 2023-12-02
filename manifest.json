@@ -1,9 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Helper AI",
-  "version": "1.0",
-  "description": "Use OpenAI's GPT-4 to generate text, translate languages, and write code on any website.",
-  "permissions": ["storage"],
+  "name": "RESTFUL",
+  "version": "0.0.0.1",
+  "description": "PenParrot brings ChatGPT to virtually every text box in your browser. Use it to write mails, posts, messages, and whatever else.",
+  "permissions": [
+    "scripting",
+    "storage",
+    "alarms",
+    "tabs"
+    ],
   "action": {
     "default_icon": "icon48.png",
     "default_popup": "popup.html"
