@@ -1,13 +1,40 @@
 chrome.runtime.onConnect.addListener(port => {
   console.assert(port.name === "regularUpdate");
 
-  chrome.alarms.create("hi", { periodInMinutes: 2 });
+  chrome.alarms.create("updateTime", { periodInMinutes: 1/60 }); 
+
   chrome.alarms.onAlarm.addListener(alarm => {
 
-  if (alarm.name === "hi") {
-    port.postMessage({ message: "PORT MESSAGEEE" });
-    restful();
+  if (alarm.name === "updateTime") {
+      updateRemainingTime();
+  }
+
+  function updateRemainingTime() {
+    chrome.storage.local.get(['hours', 'minutes'], (result) => {
+      let hours = result.hours ?? 4; // Default to 4 if undefined
+      let minutes = result.minutes ?? 0; // Default to 0 if undefined
+
+      if (minutes === 0) {
+        if (hours === 0) {
+          restful();
+          hours = 4; // Reset hours to 4 after countdown ends
+        } else {
+          hours--;
+          minutes = 59;
+        }
+      } else {
+        minutes--;
+      }
+      chrome.storage.local.set({ 'hours': hours, 'minutes': minutes });
+    });
     
+    // chrome.storage.local.get(['hours', 'minutes'], (result) => {
+    //   port.postMessage({ message: result });
+    // });    
+
+  }
+
+
   function restful() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const activeTabId = tabs[0].id;
@@ -321,11 +348,6 @@ function run_restful_app(seconds, hours) {
           };
         };
 
-
-
-  
-
-  }
 
 
 });
